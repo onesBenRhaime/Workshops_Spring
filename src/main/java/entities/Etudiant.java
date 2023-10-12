@@ -1,12 +1,21 @@
 package entities;
-
-
 import jakarta.persistence.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString(exclude={"idEtudiant"},includeFieldNames= false)
+@Slf4j
+@Service
 @Table( name = "etudiant")
 public class Etudiant implements Serializable {
     @Id
@@ -21,4 +30,5 @@ public class Etudiant implements Serializable {
     private Long cin;
     @Column(name="dateNaissance")
     private Date dateNaissance;
+
 }

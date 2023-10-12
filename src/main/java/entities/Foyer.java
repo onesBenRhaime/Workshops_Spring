@@ -6,9 +6,21 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString
+@Service
+@Slf4j
 @Table( name = "foyer")
 public class Foyer implements Serializable  {
     @Id
