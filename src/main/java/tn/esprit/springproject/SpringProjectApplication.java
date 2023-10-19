@@ -13,8 +13,7 @@ public class SpringProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringProjectApplication.class, args);
-		Bloc bloc1= new Bloc(123L,"Bloc C",1256L);
-		System.out.println("constractor :  "+bloc1);
+
 	}
 
 }

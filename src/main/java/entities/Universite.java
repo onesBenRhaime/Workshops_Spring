@@ -25,4 +25,6 @@ public class Universite {
     private String nomUniversite;
     @Column(name="adresse")
     private String adresse;
+    @OneToOne(mappedBy = "universiteA")
+    private  Foyer foyer ;
 }

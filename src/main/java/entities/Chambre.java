@@ -8,13 +8,14 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @ToString(exclude={"idChambre"},includeFieldNames= false)
-@Service
-@Slf4j
+
 @Table( name = "chambre")
 public class Chambre {
 
@@ -29,4 +30,10 @@ public class Chambre {
     @Enumerated(EnumType.STRING)
     @Column(name="typeC")
     private TypeChambre typeC;
+
+    @ManyToOne
+    private Bloc bloc  ;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Reservation> Reservations;
 }

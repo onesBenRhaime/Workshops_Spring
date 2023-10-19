@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @ToString
-@Service
-@Slf4j
+
 @Table( name = "reservation")
 public class Reservation implements Serializable {
     @Id
@@ -30,4 +30,8 @@ public class Reservation implements Serializable {
     @Column(name="estValide")
     private boolean estValide;
 
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Etudiant> etudiants;
 }

@@ -1,22 +1,17 @@
 package entities;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @ToString(includeFieldNames=false)
-@Service
-@Slf4j
+
 @Table( name = "bloc")
 public class Bloc implements Serializable {
     @Id
@@ -25,8 +20,16 @@ public class Bloc implements Serializable {
     @Setter(AccessLevel.NONE)
     @Column(name="idBloc")
     private Long idBloc;
+
     @Column(name="nomBloc")
     private String nomBloc;
+
     @Column(name="capacityBloc")
     private Long capacityBloc;
+
+    @ManyToOne
+    Foyer foyer;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy ="bloc")
+    private Set<Chambre> chambres;
 }

@@ -8,14 +8,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @ToString(exclude={"idEtudiant"},includeFieldNames= false)
-@Slf4j
-@Service
+
 @Table( name = "etudiant")
 public class Etudiant implements Serializable {
     @Id
@@ -30,5 +30,6 @@ public class Etudiant implements Serializable {
     private Long cin;
     @Column(name="dateNaissance")
     private Date dateNaissance;
-
+    @ManyToMany(cascade = CascadeType.ALL , mappedBy = "etudiants")
+    private Set<Reservation> Reservations;
 }
