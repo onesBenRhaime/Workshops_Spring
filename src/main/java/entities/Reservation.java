@@ -22,9 +22,9 @@ import java.util.Set;
 @Table( name = "reservation")
 public class Reservation implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name="idReservation")
-    private Integer idReservation;
+    private String idReservation;
     @Column(name="anneeReservation")
     private Date anneeReservation;
     @Column(name="estValide")
