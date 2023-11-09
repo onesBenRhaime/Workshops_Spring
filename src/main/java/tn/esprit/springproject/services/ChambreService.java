@@ -1,6 +1,7 @@
 package tn.esprit.springproject.services;
 
 
+import org.springframework.data.repository.query.Param;
 import tn.esprit.springproject.entities.Bloc;
 import tn.esprit.springproject.entities.Chambre;
 import tn.esprit.springproject.entities.Reservation;
@@ -60,13 +61,14 @@ public class ChambreService  implements ChambreServiceInterface{
 
         if (reservationOptional.isPresent()) {
             Reservation reservation = reservationOptional.get();
-            return chambreRepository.findByReservations(reservation);
+            //return chambreRepository.findByReservations(reservation);
+            return Collections.emptyList();
         } else {
             return Collections.emptyList();
         }
     }
 
-    @Override
+/*@Override
     public List<Chambre> getChambresByReservationAndBloc(String reservationId, Long blocId) {
         Long id = Long.parseLong(reservationId);
         Optional<Reservation> reservationOptional = reservationRepository.findById(reservationId);
@@ -84,7 +86,7 @@ public class ChambreService  implements ChambreServiceInterface{
         } else {
             return Collections.emptyList();
         }
-    }
+    }*/
 
     @Override
     public List<Chambre> getChambresByBloc(Long blocId) {
@@ -97,4 +99,9 @@ public class ChambreService  implements ChambreServiceInterface{
             return Collections.emptyList();
         }
     }
+
+    /*JPQL*/
+   public  List<Chambre> findByBlocWithReservations( Long blocId){
+        return chambreRepository.findByBlocWithReservations(blocId);
+   }
 }

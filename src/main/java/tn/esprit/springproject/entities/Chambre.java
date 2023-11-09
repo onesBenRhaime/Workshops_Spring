@@ -34,4 +34,8 @@ public class Chambre {
 
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Reservation> Reservations;
+
+    public Chambre() {
+
+    }
 }

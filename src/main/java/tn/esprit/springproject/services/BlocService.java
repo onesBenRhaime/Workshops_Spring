@@ -1,6 +1,5 @@
 package tn.esprit.springproject.services;
 
-import entities.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entities.Bloc;
@@ -17,7 +16,7 @@ import java.util.Optional;
 @Service()
 public class BlocService  implements BlocServiceInterface {
 
-    private ChambreRepositoryInterface chambreRepository;
+    private ChambreRepositoryInterface chamberRepository;
     private BlocRepositoryInterface blocRepository;
 
     @Override
@@ -49,12 +48,12 @@ public class BlocService  implements BlocServiceInterface {
         return (List<Bloc>) blocRepository.findAll();
     }
     @Override
-    public List<Bloc> getBlocsByChambre(Long chambreId) {
-        Optional<Chambre> chambreOptional = chambreRepository.findById(chambreId);
+    public List<Bloc> getBlocsByChambre(Long chamberId) {
+        Optional<Chambre> chambreOptional = chamberRepository.findById(chamberId);
 
         if (chambreOptional.isPresent()) {
             Chambre chambre = chambreOptional.get();
-            return blocRepository.findByChambres(chambre.getIdChambre());
+            return blocRepository.findByChambers(chambre.getIdChambre());
         } else {
             return Collections.emptyList();
         }
@@ -67,6 +66,9 @@ public class BlocService  implements BlocServiceInterface {
         for (Bloc bloc : blocs) {
             if (bloc.getCapacityBloc() == capacite)
                 blocsByCapacity.add(bloc);  }
-        return blocRepository.findByCapaciteBloc(capacite);
+        return blocRepository.findByCapacityBloc(capacite);
     }
+
+     /*JPQL*/
+    public  List<Bloc> findByFoyer(Long foyerId){return  blocRepository.findByFoyer(foyerId);}
 }

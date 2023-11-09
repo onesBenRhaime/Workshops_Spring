@@ -5,7 +5,6 @@ import tn.esprit.springproject.entities.Universite;
 import jakarta.persistence.EntityManager;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.repository.FoyerRepositoryInterface;
 import tn.esprit.springproject.repository.UniversiteRepositoryInterface;
@@ -72,4 +71,7 @@ public class UniversiteService implements UniversiteServiceInterface {
         return universiteRepository.findUniversiteByIdchambre(idChambre);
     }
 
+    public  List<Universite> getUniversitiesWithFoyers(){
+        return universiteRepository.findAllWithFoyers();
+    }
 }

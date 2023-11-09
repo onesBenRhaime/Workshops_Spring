@@ -1,5 +1,6 @@
 package tn.esprit.springproject.services;
 
+import org.springframework.data.repository.query.Param;
 import tn.esprit.springproject.entities.Chambre;
 import tn.esprit.springproject.entities.Reservation;
 import tn.esprit.springproject.repository.ChambreRepositoryInterface;
@@ -53,4 +54,9 @@ public class ReservationService implements ReservationServiceInterface{
             return null;
         }
     }
+
+    /*JPQL*/
+   public  List<Reservation> findByEtudiant(Long etudiantId){
+       return  reservationRepository.findByEtudiant(etudiantId);
+   }
 }

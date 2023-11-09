@@ -13,7 +13,7 @@ public interface ChambreServiceInterface {
     void deleteChambre(Long id);
     List<Chambre> getChambresByReservation(String reservationId);
 
-    List<Chambre> getChambresByReservationAndBloc(String reservationId, Long blocId);
+   /* List<Chambre> getChambresByReservationAndBloc(String reservationId, Long blocId);*/
 
     List<Chambre> getChambresByBloc(Long blocId);
 }

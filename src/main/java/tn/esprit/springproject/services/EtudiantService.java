@@ -1,5 +1,6 @@
 package tn.esprit.springproject.services;
 
+import org.springframework.data.repository.query.Param;
 import tn.esprit.springproject.entities.Etudiant;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,14 @@ public class EtudiantService  implements EtudiantServiceInterface {
    public List<Etudiant> getAllEtudiants() {
       return (List<Etudiant>) etudiantRepository.findAll();
    }
+
+
+
+   /*JPQL*/
+
+  public List<Etudiant> findByReservation(Long reservationId){
+     return  etudiantRepository.findByReservation(reservationId);
+  }
+
 
 }

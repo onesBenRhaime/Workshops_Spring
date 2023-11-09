@@ -78,4 +78,10 @@ public class FoyerService implements FoyerServiceInterface{
         }
     }
 
+
+
+
+    public List<Foyer> findByUniversite(Long universiteId) {
+        return foyerRepository.findByUniversite(universiteId);
+    }
 }

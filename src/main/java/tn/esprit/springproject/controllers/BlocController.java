@@ -14,10 +14,8 @@ public class BlocController {
 @Autowired
      BlocService blocService ;
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     public List<Bloc> getBlocByCapacity(@RequestParam Long capacite){
         return blocService.getBlocByCapacite(capacite);
-    }
-
-
+    }*/
 }
