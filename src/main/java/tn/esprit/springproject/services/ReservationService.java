@@ -49,7 +49,8 @@ public class ReservationService implements ReservationServiceInterface{
 
         if (chambreOptional.isPresent()) {
             Chambre chambre = chambreOptional.get();
-            return reservationRepository.findByChambre(chambre);
+         //   return reservationRepository.findByChambre(chambre);
+            return null;
         } else {
             return null;
         }

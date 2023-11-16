@@ -10,7 +10,7 @@ import java.util.List;
 public interface BlocRepositoryInterface extends CrudRepository<Bloc,Long> {
 
  public List<Bloc>  findByCapacityBloc(Long capacity);
- public List<Bloc> findByChambers(Long idChamber);
+ //public List<Bloc> findByChambers(Long idChamber);
 
 /*Requête pour récupérer tous les blocs d'un foyer spécifique */
 

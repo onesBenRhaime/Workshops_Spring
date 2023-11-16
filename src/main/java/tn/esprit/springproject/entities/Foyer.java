@@ -1,10 +1,9 @@
 package tn.esprit.springproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -13,6 +12,8 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
+
+@NoArgsConstructor
 @ToString
 @Table( name = "foyer")
 public class Foyer implements Serializable  {
@@ -25,10 +26,11 @@ public class Foyer implements Serializable  {
     @Column(name="capacityFoyer")
     private Long capacityFoyer;
     @OneToOne
+    @JsonIgnore
      private Universite universiteA ;
 
-
     @OneToMany(cascade = CascadeType.ALL,  mappedBy = "foyer")
+    @JsonIgnore
     private Set<Bloc> Blocs;
 
 

@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface FoyerRepositoryInterface extends CrudRepository<Foyer,Long> {
     List<Foyer> findByUniversiteA(Universite universite);
-    List<Foyer> findByBlocs(Bloc bloc);
+ //   List<Foyer> findByBlocs(Bloc bloc);
     
     /*
         * Requête pour récupérer tous les foyers d'une université spécifique

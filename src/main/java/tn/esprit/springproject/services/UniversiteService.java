@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Service
-public class UniversiteService implements UniversiteServiceInterface {
+public class UniversiteService implements UniversityServiceInterface {
     @Autowired
     private EntityManager em;
 
@@ -27,18 +27,18 @@ public class UniversiteService implements UniversiteServiceInterface {
     }
 
     @Override
-    public Universite getUniversiteById(Long id) {
+    public Universite getUniversityById(Long id) {
         return universiteRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Universite> getAllUniversites() {
+    public List<Universite> getAllUniversities() {
         return (List<Universite>) universiteRepository.findAll();
     }
 
     @Override
     public Universite updateUniversite(Universite updatedUniversite) {
-        Universite existingUniversite = getUniversiteById(updatedUniversite.getIdUniversite());
+        Universite existingUniversite = getUniversityById(updatedUniversite.getIdUniversite());
         if (existingUniversite != null) {
             existingUniversite.setNomUniversite(updatedUniversite.getNomUniversite());
             existingUniversite.setAdresse(updatedUniversite.getAdresse());
@@ -49,12 +49,12 @@ public class UniversiteService implements UniversiteServiceInterface {
         }
     }
     @Override
-    public void deleteUniversite(Long id) {
+    public void deleteUniversity(Long id) {
         universiteRepository.deleteById(id);
     }
 
     @Override
-    public Universite getUniversiteByFoyer(Long foyerId) {
+    public Universite getUniversityByFoyer(Long foyerId) {
         Optional<Foyer> foyerOptional = foyerRepository.findById(foyerId);
 
         if (foyerOptional.isPresent()) {
@@ -67,7 +67,7 @@ public class UniversiteService implements UniversiteServiceInterface {
 
 
 
-    public Universite getUniversitesByIdchambre(Long idChambre) {
+    public Universite getUniversityChambermaid(Long idChambre) {
         return universiteRepository.findUniversiteByIdchambre(idChambre);
     }
 

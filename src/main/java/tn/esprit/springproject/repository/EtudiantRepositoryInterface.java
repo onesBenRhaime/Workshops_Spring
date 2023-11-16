@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface EtudiantRepositoryInterface  extends CrudRepository<Etudiant,Long> {
 
-  public List<Bloc> findByIdEtudiant(Long idEtudiant);
+ // public List<Bloc> findByIdEtudiant(Long idEtudiant);
 
  /* Requête pour récupérer tous les étudiants associés à une réservation spécifique  */
     @Query("SELECT e FROM Etudiant e JOIN e.Reservations r WHERE r.idReservation = :reservationId")

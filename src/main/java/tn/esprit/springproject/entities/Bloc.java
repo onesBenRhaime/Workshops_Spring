@@ -1,4 +1,6 @@
 package tn.esprit.springproject.entities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,8 +11,8 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString(includeFieldNames=false)
-
 @Table( name = "bloc")
 public class Bloc implements Serializable {
     @Id
@@ -25,10 +27,10 @@ public class Bloc implements Serializable {
 
     @Column(name="capacityBloc")
     private Long capacityBloc;
-
+    @JsonBackReference
     @ManyToOne
     Foyer foyer;
-
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy ="bloc")
     private Set<Chambre> chambres;
 }

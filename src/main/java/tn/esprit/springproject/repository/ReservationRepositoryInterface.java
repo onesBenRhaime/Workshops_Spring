@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface ReservationRepositoryInterface extends CrudRepository<Reservation,String> {
-    Reservation findByChambre(Chambre chambre);
+   // Reservation findByChambre(Chambre chambre);
 
   /* Requête pour récupérer toutes les réservations associées à un étudiant spécifique : */
     @Query("SELECT r FROM Reservation r JOIN r.etudiants e WHERE e.idEtudiant = :etudiantId")

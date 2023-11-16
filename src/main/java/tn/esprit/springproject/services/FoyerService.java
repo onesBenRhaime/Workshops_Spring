@@ -72,7 +72,8 @@ public class FoyerService implements FoyerServiceInterface{
 
         if (blocOptional.isPresent()) {
             Bloc bloc = blocOptional.get();
-            return foyerRepository.findByBlocs(bloc);
+          //  return foyerRepository.findByBlocs(bloc);
+            return Collections.emptyList();
         } else {
             return Collections.emptyList();
         }

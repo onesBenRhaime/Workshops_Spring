@@ -53,7 +53,8 @@ public class BlocService  implements BlocServiceInterface {
 
         if (chambreOptional.isPresent()) {
             Chambre chambre = chambreOptional.get();
-            return blocRepository.findByChambers(chambre.getIdChambre());
+           // return blocRepository.findByChambers(chambre.getIdChambre());
+            return Collections.emptyList();
         } else {
             return Collections.emptyList();
         }

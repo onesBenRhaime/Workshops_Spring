@@ -1,10 +1,7 @@
 package tn.esprit.springproject.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +9,7 @@ import org.springframework.stereotype.Service;
 @Getter
 @Setter
 @AllArgsConstructor
+
 @ToString
 @Service
 @Slf4j
@@ -27,4 +25,8 @@ public class Universite {
     private String adresse;
     @OneToOne(mappedBy = "universiteA")
     private  Foyer foyer ;
+
+    public Universite() {
+
+    }
 }
