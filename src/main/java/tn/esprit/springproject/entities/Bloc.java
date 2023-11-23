@@ -12,12 +12,11 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(includeFieldNames=false)
+@ToString(exclude={"idBloc","chambres","foyers"},includeFieldNames= false)
 @Table( name = "bloc")
 public class Bloc implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ToString.Exclude
     @Setter(AccessLevel.NONE)
     @Column(name="idBloc")
     private Long idBloc;

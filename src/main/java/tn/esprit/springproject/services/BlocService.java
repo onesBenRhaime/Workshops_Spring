@@ -1,6 +1,8 @@
 package tn.esprit.springproject.services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entities.Bloc;
 import tn.esprit.springproject.entities.Chambre;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
+@Slf4j
 @Service()
 public class BlocService  implements BlocServiceInterface {
 
@@ -72,4 +75,16 @@ public class BlocService  implements BlocServiceInterface {
 
      /*JPQL*/
     public  List<Bloc> findByFoyer(Long foyerId){return  blocRepository.findByFoyer(foyerId);}
+
+    @Override
+    @Scheduled(fixedRate = 30000)
+    public void afficherListeBlocs() {
+        //liste des blocs
+        List<Bloc> listeBlocs = (List<Bloc>) blocRepository.findAll();
+        // Affiche la liste des blocs
+        System.out.println("Liste des blocs chaque 30 secondes :");
+        for (Bloc bloc : listeBlocs) {
+            log.info(bloc.toString());
+        }
+    }
 }

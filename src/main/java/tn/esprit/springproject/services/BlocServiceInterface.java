@@ -26,4 +26,5 @@ public interface BlocServiceInterface {
     List<Bloc> getBlocsByChambre(Long chambreID);
     List<Bloc> getBlocByCapacite(Long capacite);
     Bloc updateBloc(Bloc updatedBloc);
+    void afficherListeBlocs ();
 }
